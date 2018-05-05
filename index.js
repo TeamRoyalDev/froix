@@ -29,7 +29,7 @@ fs.readdir("./commands/", (err, files) => {
 
 })
 
-
+process.on("error", console.error)
 bot.on("ready", async () => {
 	console.log(`${bot.user.username} is online!`)
 	bot.user.setActivity("Froix.xyz", {type: "WATCHING"});
@@ -52,7 +52,6 @@ bot.on("message", async message => {
 
 
 })
-
 
 
 bot.login(process.env.BOT_TOKEN);
