@@ -13,8 +13,15 @@ module.exports.run = async (bot, message, args) => {
      return message.channel.send(`You already have a ticket open.`);
 
     message.guild.createChannel(`ticket-${message.author.username}`, "text").then(c => {
+    let category = message.guild.channels.find("name", "Open Tickets");
+        if(category) {
+            c.setParent(category)
+             .then(updated => console.log(`Set the category of ${channel.name} to ${channel.parent.name}`))
+            .catch(console.error);
+           } else message.reply("Category could not be found.");
         let role = message.guild.roles.find("name", "Sales Representative");
-        if(!role) return message.channel.send("Hey! Your server doesn't have a Sales Representative role! Please create one.")
+        if(!role) return message.channel.send("Create a Sales Representative role.")
+        let role2 = message.guild.roles.find("name", "@everyone");
 
 
         c.overwritePermissions(role, {
@@ -22,7 +29,7 @@ module.exports.run = async (bot, message, args) => {
             READ_MESSAGES: true
         });
 
-        c.overwritePermissions(message.guild.id, {
+        c.overwritePermissions(role2, {
             SEND_MESSAGES: false,
             READ_MESSAGES: false
         });
