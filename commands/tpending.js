@@ -10,8 +10,6 @@ module.exports.run = async (bot, message, args) => {
         let channelName = message.channel.name
 
        
-        if (!channelName.startsWith(`ticket-`)) return message.channel.send(`You can't run this command outside a ticket channel.`);
-        
         let category = message.guild.channels.find("name", "Pending Tickets");
         if(category) {
             channel.setParent(category)
