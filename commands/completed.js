@@ -19,8 +19,8 @@ module.exports.run = async (bot, message, args) => {
            } 
            let role = message.guild.roles.find("name", "Sales Representative");
             channel.overwritePermissions(role, {
-            SEND_MESSAGES: true,
-            READ_MESSAGES: true
+            SEND_MESSAGES: false,
+            READ_MESSAGES: false
         });
         
         
