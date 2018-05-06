@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
         let c = message.channel;
         let channelName = message.channel.name
 
-        if (channelName.startsWith(`pending-`)) return message.channel.send(`Your ticket is already pending.`);
+       
         if (!channelName.startsWith(`ticket-`)) return message.channel.send(`You can't run this command outside a ticket channel.`);
         
         let category = message.guild.channels.find("name", "Pending Tickets");
