@@ -9,8 +9,6 @@ module.exports.run = async (bot, message, args) => {
     if (channelName.startsWith(`pending-`)) return message.channel.send(`You can't create a ticket in a pending ticket.`);
 
     const reason = message.content.split(" ").slice(1).join(" ");
-    if (message.guild.channels.exists("name", `ticket-${message.author.username.toLowerCase()}`))
-     return message.channel.send(`You already have a ticket open.`);
 
     message.guild.createChannel(`ticket-${message.author.username}`, "text").then(c => {
     let category = message.guild.channels.find("name", "Open Tickets");
