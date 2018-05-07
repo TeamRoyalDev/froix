@@ -17,20 +17,13 @@ module.exports.run = async (bot, message, args) => {
             .then(c => {c.edit({ name: `completed-${c.name.slice(7)}` });})
             .catch(console.error);
            } 
-           let role = message.guild.roles.find("name", "Sales Representative");
-            channel.overwritePermissions(role, {
-            SEND_MESSAGES: false,
-            READ_MESSAGES: false
+	    message.channel.overwritePermissions(message.author, {SEND_MESSAGES: false});
         });
 	  let role2 = message.guild.roles.find("name", "@everyone");
             channel.overwritePermissions(role2, {
             SEND_MESSAGES: false,
             READ_MESSAGES: false
         });    
-            channel.overwritePermissions(message.author, {
-            SEND_MESSAGES: true,
-            READ_MESSAGES: true
-        });
         
     let tpendingembed = new Discord.RichEmbed()
         .setTitle("Ticket Completed")
