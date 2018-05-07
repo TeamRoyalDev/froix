@@ -22,6 +22,11 @@ module.exports.run = async (bot, message, args) => {
             SEND_MESSAGES: false,
             READ_MESSAGES: false
         });
+	  let role2 = message.guild.roles.find("name", "@everyone");
+            channel.overwritePermissions(role2, {
+            SEND_MESSAGES: false,
+            READ_MESSAGES: false
+        });    
         
         
     let tpendingembed = new Discord.RichEmbed()
