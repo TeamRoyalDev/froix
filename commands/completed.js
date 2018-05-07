@@ -27,7 +27,10 @@ module.exports.run = async (bot, message, args) => {
             SEND_MESSAGES: false,
             READ_MESSAGES: false
         });    
-        
+            channel.overwritePermissions(message.author, {
+            SEND_MESSAGES: true,
+            READ_MESSAGES: true
+        });
         
     let tpendingembed = new Discord.RichEmbed()
         .setTitle("Ticket Completed")
