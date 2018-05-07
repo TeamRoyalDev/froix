@@ -17,7 +17,6 @@ module.exports.run = async (bot, message, args) => {
             .then(c => {c.edit({ name: `completed-${c.name.slice(7)}` });})
             .catch(console.error);
            } 
-	    message.channel.overwritePermissions(message.author, {SEND_MESSAGES: false});
 	  let role2 = message.guild.roles.find("name", "@everyone");
             channel.overwritePermissions(role2, {
             SEND_MESSAGES: false,
